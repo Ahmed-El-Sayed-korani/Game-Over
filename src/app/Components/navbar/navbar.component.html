@@ -1,0 +1,101 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container ">
+    <div class="logo">
+      <a class="navbar-brand cursor-pointer">
+        <img src="../../../assets/Images/logo.png" alt="">
+        <span class="text-white">Game Over</span>
+      </a>
+
+    </div>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse align-items-center" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mt-2 mx-5 mt-lg-0" *ngIf="_AuthService.userToken">
+        <li class="nav-item">
+          <a class="nav-link active" routerLink="home" routerLinkActice="active">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="All" routerLinkActice="active">All</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Platforms
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item text-dark" href="#" routerLink="games/Platforms/pc"
+                routerLinkActice="active">pc</a>
+            </li>
+            <li><a class="dropdown-item text-dark" href="#" routerLink="games/Platforms/browser"
+                routerLinkActice="active">browser</a></li>
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            sort-by
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item text-dark" href="#" routerLink="games/sort-by/release-date"
+                routerLinkActice="active">release-date</a>
+            </li>
+            <li><a class="dropdown-item text-dark" href="#" routerLink="games/sort-by/popularity"
+                routerLinkActice="active">popularity</a></li>
+            <li><a class="dropdown-item text-dark" href="#" routerLink="games/sort-by/alphabetical"
+                routerLinkActice="active">alphabetical</a>
+            </li>
+            <li><a class="dropdown-item text-dark" href="#" routerLink="games/sort-by/relevance"
+                routerLinkActice="active">relevance</a></li>
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            catagories
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item text-dark" href="#" routerLink="games/Categories/racing"
+                routerLinkActice="active">racing</a>
+            </li>
+            <li><a class="dropdown-item text-dark" href="#" routerLink="games/Categories/sports"
+                routerLinkActice="active">sports</a></li>
+            <li><a class="dropdown-item text-dark" href="#" routerLink="games/Categories/social"
+                routerLinkActice="active">social</a>
+            </li>
+            <li><a class="dropdown-item text-dark" href="#" routerLink="games/Categories/shooter"
+                routerLinkActice="active">shooter</a></li>
+            <li><a class="dropdown-item text-dark" href="#" routerLink="games/Categories/open-world"
+                routerLinkActice="active">open-world</a></li>
+            <li><a class="dropdown-item text-dark" href="#" routerLink="games/Categories/zombie"
+                routerLinkActice="active">zombie</a></li>
+            <li><a class="dropdown-item text-dark" href="#" routerLink="games/Categories/fantasy"
+                routerLinkActice="active">fantasy</a></li>
+            <li><a class="dropdown-item text-dark" href="#" routerLink="games/Categories/action-rpg"
+                routerLinkActice="active">action-rpg</a></li>
+            <li><a class="dropdown-item text-dark" href="#" routerLink="games/Categories/action"
+                routerLinkActice="active">action</a></li>
+            <li><a class="dropdown-item text-dark" href="#" routerLink="games/Categories/flight"
+                routerLinkActice="active">flight</a></li>
+            <li><a class="dropdown-item text-dark" href="#" routerLink="games/Categories/battle-royale"
+                routerLinkActice="active">battle-royale</a></li>
+          </ul>
+        </li>
+
+
+      </ul>
+
+      <ul class="d-flex list-unstyled ms-auto mt-3">
+        <li class="mx-2 pt-2" *ngIf="!_AuthService.userToken">
+          <a routerLink="login" routerLinkActice="active">Login</a>
+        </li>
+        <li class="mx-2 button p-2" *ngIf="!_AuthService.userToken">
+          <a routerLink="JoinFree" routerLinkActice="active" id="#/JoinFree">JoinFree</a>
+        </li>
+        <li class="mx-2 button p-2" *ngIf="_AuthService.userToken">
+          <a class="cursor-pointer" (click)="_AuthService.logout()">Logout</a>
+        </li>
+
+      </ul>
+    </div>
+  </div>
+</nav>

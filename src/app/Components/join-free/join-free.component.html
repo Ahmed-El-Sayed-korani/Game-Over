@@ -1,0 +1,66 @@
+<div class="container py-4">
+  <div class="row bg-sec">
+    <div class="col-md-6 ps-0">
+      <img src="../../../assets/Images/gaming.ebaf2ffc84f4451d.jpg" class="w-100 h-100" alt="">
+    </div>
+
+    <div class="col-md-6  p-lg-5">
+      <h3 class="text-main fw-semibold text-center my-3">Create My Account!</h3>
+      <form [formGroup]="registerForm" (ngSubmit)="register()">
+        <div class="d-flex my-2">
+          <div class="f-name me-2 w-100">
+            <input type="text" placeholder="First Name" class="form-control py-2" formControlName="first_name">
+            <div *ngIf="registerForm.get('first_name')?.touched && registerForm.get('first_name')?.status == 'INVALID'"
+              class="alert alert-warning bg-white p-0">
+              <p *ngIf="registerForm.get('first_name')?.getError('required')">First name is required</p>
+            </div>
+
+          </div>
+          <div class="s_name w-100">
+            <input type="text" placeholder="Second Name" class="form-control py-2" formControlName="last_name">
+            <div *ngIf="registerForm.get('last_name')?.touched && registerForm.get('last_name')?.status == 'INVALID'"
+              class="alert alert-warning bg-white p-0 ">
+              <p *ngIf="registerForm.get('last_name')?.getError('required')">Last name is required</p>
+            </div>
+          </div>
+        </div>
+        <div class="my-3">
+          <input type="email" placeholder="Email Address" class="form-control py-2" formControlName="email">
+          <div *ngIf="registerForm.get('email')?.touched && registerForm.get('email')?.status == 'INVALID'"
+            class="alert alert-warning  bg-white p-0 mt-0">
+            <p *ngIf="registerForm.get('email')?.getError('required')">Email is required</p>
+            <p *ngIf="registerForm.get('email')?.getError('email')">Enter Vaild Email</p>
+          </div>
+        </div>
+        <div class="my-3">
+          <input type="number" placeholder="Age" class="form-control py-2" formControlName="age">
+          <div *ngIf="registerForm.get('age')?.touched && registerForm.get('age')?.status == 'INVALID'"
+            class="alert alert-warning  bg-white p-0">
+            <p *ngIf="registerForm.get('age')?.getError('required')">age is required</p>
+            <p *ngIf="registerForm.get('age')?.getError('pattern')">Enter Vaild age</p>
+          </div>
+        </div>
+        <div class="my-3">
+          <input type="password" placeholder="Password" class="form-control py-2" formControlName="password">
+          <div *ngIf="registerForm.get('password')?.touched && registerForm.get('password')?.status == 'INVALID'"
+            class="alert alert-danger bg-white p-0">
+            <p *ngIf="registerForm.get('password')?.getError('required')">password is required</p>
+            <p *ngIf="registerForm.get('password')?.getError('pattern')" class="w-100">
+              The password's first character must be a letter, it must contain at least 4 characters and no more than 15
+              characters and no characters other than letters, numbers and the underscore may be used</p>
+          </div>
+        </div>
+        <button type="submit" class="btn bg-main w-100 text-white p-2 border-1 border-dark">
+          <span class="txt">Creat Account</span>
+          <i class="fa fa-spinner fa-spin hide loading-icon"></i></button>
+      </form>
+      <p class="text-main my-2">This site is protected by reCAPTCHA and the Google<span class="mx-2"><a href=""
+            class="text-main text-decoration-underline">Privacy
+            Policy</a></span>and<span class="mx-2"><a href="" class="text-main text-decoration-underline">Terms of
+            Service</a></span>apply.</p>
+      <hr class="text-main">
+      <p class="text-main my-2">Already a member?<span class="mx-2"><a href="" class="text-sec">Log In></a></span></p>
+
+    </div>
+  </div>
+</div>

@@ -1,0 +1,91 @@
+<app-spinner></app-spinner>
+<div class="container">
+  <div class="row">
+
+    <div class="col-md-4 my-5 ">
+      <div class="media position-relative overflow-hidden rounded-1">
+        <video class="w-100 top-0 rounded-2 position-relative" autoplay="">
+          <source type="video/webm" src="https://www.freetogame.com/g/365/videoplayback.webm">
+        </video>
+        <img [src]="gameDetails?.thumbnail" class="w-100 position-absolute start-0" alt="">
+      </div>
+
+      <div class="d-flex  my-5">
+        <button class="btn bg-sec"><span class="btn text-main">Free</span></button>
+        <button class="btn btn-info w-100 ms-2"><a [href]="gameDetails?.game_url" target="_blank">Play
+            Now
+            [-></a></button>
+      </div>
+    </div>
+    <div class="col-md-8 my-5">
+      <div>
+        <h2 class="text-main fs-1 fw-bold">{{gameDetails?.title}}</h2>
+        <p class="text-main fs-4 fw-semibold">About<span class="mx-2 ">{{gameDetails?.title}}</span></p>
+        <p class="text-main fs-5">{{gameDetails?.description}}</p>
+        <p class="text-main fs-4 fw-semibold">Minimum System Requirements</p>
+        <p class="text-main fs-5 fw-semibold">graphics : <span
+            class="text-main fw-normal">{{gameDetails?.minimum_system_requirements.graphics}}</span></p>
+        <p class="text-main fs-5 fw-semibold"> memory : <span
+            class="text-main fw-normal">{{gameDetails?.minimum_system_requirements.memory}}</span></p>
+        <p class="text-main fs-5 fw-semibold"> os : <span
+            class="text-main fw-normal">{{gameDetails?.minimum_system_requirements.os}}</span></p>
+        <p class="text-main fs-5 fw-semibold"> processor : <span class="text-main fw-normal">
+            {{gameDetails?.minimum_system_requirements.processor}}
+          </span></p>
+        <p class="text-main fs-5 fw-semibold"> storage : <span class="text-main fw-normal">
+            {{gameDetails?.minimum_system_requirements.storage}}</span></p>
+        <p class="text-main fs-4 fw-semibold">{{gameDetails?.title}}<span class="mx-2">Screenshots</span></p>
+
+      </div>
+
+      <owl-carousel-o [options]="customOptions">
+
+        <ng-container>
+          <ng-template carouselSlide *ngFor=" let slide of gameDetails?.screenshots">
+            <img [src]="slide.image" class="d-block w-100">
+          </ng-template>
+        </ng-container>
+
+      </owl-carousel-o>
+
+
+      <div>
+        <p class="text-main fs-2 fw-semibold my-3">Additional Information</p>
+        <div class="row">
+          <div class="col-md-4">
+            <p class="text-sec-2 font-nm">Title</p>
+            <p class="text-main fs-5">{{gameDetails?.title}}</p>
+          </div>
+          <div class="col-md-4">
+            <p class="text-sec-2 font-nm">Developer</p>
+            <p class="text-main fs-5">{{gameDetails?.developer}}</p>
+          </div>
+          <div class="col-md-4">
+            <p class="text-sec-2 font-nm">Publisher</p>
+            <p class="text-main fs-5">{{gameDetails?.publisher}}</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+            <p class="text-sec-2 font-nm">Release Date</p>
+            <p class="text-main fs-5">{{gameDetails?.release_date}}</p>
+          </div>
+          <div class="col-md-4">
+            <p class="text-sec-2 font-nm">Genre</p>
+            <p class="text-main fs-5">{{gameDetails?.genre}}</p>
+          </div>
+          <div class="col-md-4">
+            <p class="text-sec-2 font-nm">Platform</p>
+            <i class="fa-brands fa-windows text-main">
+              <span class="mx-1">{{gameDetails?.platform
+              }}</span>
+            </i>
+          </div>
+        </div>
+
+      </div>
+
+
+    </div>
+  </div>
+</div>

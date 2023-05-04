@@ -1,0 +1,26 @@
+<app-spinner></app-spinner>
+<div class="container">
+  <div class="row my-3">
+    <div class="col-md-3 cursor-pointer g-3" title="Available on Windows" [routerLink]="['/gameDetails/',game.id]"
+      *ngFor="let game of gamesPc">
+      <div class="game  rounded-1 bg-sec card h-100">
+        <img [src]="game.thumbnail" class="w-100 card-img-top" alt="">
+        <div class="d-flex justify-content-between py-3 px-3 w-100 ">
+          <h5 class="text-main card-title w-100">{{game.title.split(" ").slice(0,3).join(" ")}}</h5>
+          <p class="font-sm btn px-2  fw-bold card-text">FREE</p>
+        </div>
+        <p class="text-main px-3">{{game.short_description.split(" ").slice(0,5).join(" ")}}</p>
+        <div class="d-flex justify-content-between p-2 mb-1 fs-5">
+          <i class="fas fa-plus-square text-main py-1"></i>
+          <div>
+            <span class="des mx-2 py-1 px-2 font-sm fw-bolder">{{game.genre}}</span>
+            <i class="fab fa-windows text-muted stretched-link"></i>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+  <button class="btn btn-outline-secondary m-auto d-block mb-3 px-4 py-2" (click)="loadMore()">More Games ></button>
+</div>

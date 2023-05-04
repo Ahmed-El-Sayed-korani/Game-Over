@@ -1,0 +1,34 @@
+<app-spinner></app-spinner>
+<div class="text-center heading">
+  <div class="container">
+    <div class="row">
+      <div class="content">
+        <h2 class="text-main pt-5 fs-1">Find & track the best <span class="text-sec">free-to-play</span> games!</h2>
+        <p class="text-main py-3">Track what you've played and search for what to play next! Plus get free premium loot!
+        </p>
+        <button class="btn btn-outline-secondary mb-5 " [routerLink]="['/All/']">Browser Games</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row my-4 h-100">
+    <div class="title fs-2 text-main my-3 d-flex">
+      <i class="fas fa-robot  me-2 mt-1">
+      </i>
+      <p>
+        Personalized Recommendations
+      </p>
+    </div>
+    <div class="col-md-4 cursor-pointer mb-4" [routerLink]="['/gameDetails/',game.id]" *ngFor="let game of games">
+      <div class="game border-1 box-shadow border-dark rounded-1">
+        <img [src]="game.thumbnail" class="w-100" alt="">
+        <div class="d-flex justify-content-between p-4 bg-sec">
+          <h3 class="text-main">{{game.title}}</h3>
+          <p class="font-sm btn px-2 py-2 fw-bold">FREE</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

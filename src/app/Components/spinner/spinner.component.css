@@ -1,0 +1,51 @@
+body {
+    overflow: hidden;
+}
+#wrapper {
+    position: absolute;
+    width: calc(48px * 2);
+    margin: 50vh 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  #wrapper div {
+    width: 48px;
+    height: 48px;
+    float: left;
+    text-align: center;
+    line-height: 4.5
+  }
+
+  svg {
+    width: 70%
+  }
+
+  @keyframes rotateAnimation {
+    0% {
+      transform: rotate(0) scale(1)
+    }
+    50% {
+      transform: rotate(120deg) scale(0)
+    }
+    70% {
+      transform: rotate(-120deg) scale(0)
+    }
+    100% {
+      transform: rotate(0) scale(1)
+    }
+  }
+
+  #triangle svg{
+    animation: rotateAnimation 1s ease-in-out infinite;
+ 
+}
+  #square svg{
+    animation: rotateAnimation 1s 1s ease-in-out infinite;
+  }
+  #circle svg{
+    animation: rotateAnimation 1s .5s ease-in-out infinite;
+
+}
+  #cross svg{
+    animation: rotateAnimation 1s 2s ease-in-out infinite;
+  }
